@@ -1,46 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-html, body {
-    font-family: 'Roboto';
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+html,
+body {
+  font-family: "Roboto";
 }
 .text-header {
-    font-weight: 700;
-    font-size: 18px;
-    color: #000000DE;
-    letter-spacing: 0;
-    line-height: 22px;
-    top: 56px;
-    left: 25px;
+  font-weight: 700 !important;
+  font-size: 18px;
+  color: #000000de;
+  letter-spacing: 0.03em;
+  line-height: 22px;
 }
-.text-label-muted, .goods-requirement {
-    font-weight: 400;
-    font-size: 12px;
-    color: #000000DE;
-    opacity: 0.6;
-    letter-spacing: 0;
-    line-height: 14px;
+.text-label-muted,
+.goods-requirement {
+  font-weight: 400;
+  font-size: 12px;
+  color: #000000de;
+  opacity: 0.6;
+  letter-spacing: 0;
+  line-height: 14px;
 }
 .text-label-delivery {
   font-weight: 400;
   font-size: 12px;
-  color: #000000DE;
+  color: #000000de;
   letter-spacing: 0;
   line-height: 14px;
 }
 .registrasi-xd {
-    text-align: center;
-    font: normal normal bold 16px/19px Roboto;
-    letter-spacing: 0px;
-    color: #FFFFFF;
-    opacity: 1;
+  text-align: center;
+  font: normal normal bold 16px/19px Roboto;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  opacity: 1;
 }
 
 .btn-xd {
-    background: #3F37C9 0% 0% no-repeat padding-box !important;
-    border-radius: 10px;
-    opacity: 1;
-    width: 100%;
-    max-width: 340px;
-    height: 48px;
+  background: #3f37c9 0% 0% no-repeat padding-box !important;
+  border-radius: 10px;
+  opacity: 1;
+  width: 100%;
+  max-width: 340px;
+  padding: 0.75rem;
+}
+.btn-xd:hover {
+  background: #1f18b1 !important;
 }
 
 .btn-xds {
@@ -56,33 +59,32 @@ html, body {
 }
 
 .btn-round-xd {
-    border-radius: 10px;
-    opacity: 1;
-    width: 100%;
-    max-width: 340px;
-    height: 48px;
+  border-radius: 10px;
+  opacity: 1;
+  width: 100%;
+  max-width: 340px;
+  height: 48px;
 }
 .btn-xd:hover {
-    background: #6964c1 0% 0% no-repeat padding-box;
+  background: #6964c1 0% 0% no-repeat padding-box;
 }
 .input-rounded-xd {
-    font-size: 16px;
-    color: #000000DE !important;
-    letter-spacing: 0;
-    line-height: 14px;
-
-    width: 100%;
-    max-width: 340px;
-    border: 1px solid #A3A3A3;
-    border-radius: 10px;
-    opacity: 1;
+  font-size: 16px;
+  color: #000000de !important;
+  letter-spacing: 0;
+  line-height: 14px;
+  width: 100%;
+  border: 1px solid #a3a3a3;
+  border-radius: 10px;
+  opacity: 1;
 }
 
 .search-button {
-  border: 1px solid #41506D;
+  border: 1px solid #41506d;
+  font-size: 14px;
 }
 
-.address-bold-title{
+.address-bold-title {
   font-weight: 700;
   font-size: 14px;
   color: black;
@@ -90,39 +92,40 @@ html, body {
   line-height: 18px;
 }
 
-.address-text-btn{
+.address-text-btn {
   text-align: center;
   font: normal normal bold 14px/17px Roboto;
   letter-spacing: 0px;
-  color: #3F37C9;
+  color: #3f37c9;
   opacity: 1;
 }
 
 .address-regular-desc {
-    font-weight: 400;
-    font-size: 14px;
-    color: black;
-    letter-spacing: 0;
-    line-height: 18px;
-    opacity: 0.6
+  font-weight: 400;
+  font-size: 14px;
+  color: black;
+  letter-spacing: 0;
+  line-height: 18px;
+  opacity: 0.6;
 }
 
 .outline-blue-base {
-  color: #3F37C9 !important;
-  border-color: #3F37C9 !important;
+  color: #3f37c9 !important;
+  border-color: #3f37c9 !important;
 }
-.outline-blue-base:hover{
+.outline-blue-base:hover {
   color: #fff !important;
-  background-color: #3F37C9 !important;
-  border-color: #3F37C9 !important;
+  background-color: #3f37c9 !important;
+  border-color: #3f37c9 !important;
 }
-.outline-blue-base:focus, .outline-blue-base.focus {
+.outline-blue-base:focus,
+.outline-blue-base.focus {
   box-shadow: 0 0 0 0.2rem rgba(89, 67, 252, 0.5) !important;
 }
 .blue-base {
   color: #fff !important;
-  background-color: #3F37C9 !important;
-  border-color: #3F37C9 !important;
+  background-color: #3f37c9 !important;
+  border-color: #3f37c9 !important;
 }
 .blue-base:hover {
   color: #fff !important;
@@ -130,21 +133,24 @@ html, body {
   border-color: #433bda !important;
 }
 
-.blue-base:focus, .blue-base.focus {
+.blue-base:focus,
+.blue-base.focus {
   color: #fff !important;
-  background-color: #3F37C9 !important;
-  border-color: #3F37C9 !important;
+  background-color: #3f37c9 !important;
+  border-color: #3f37c9 !important;
   box-shadow: 0 0 0 0.2rem rgba(38, 46, 201, 0.5) !important;
 }
 
 .address-btn {
-  width: 134px !important;
-  height: 33px !important;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  border: 1px solid #3F37C9;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #3f37c9;
   border-radius: 17px;
   opacity: 1;
-
+  padding: 0.5rem 1.25rem !important;
+}
+.address-btn:hover {
+  background: #3f37c9 !important;
+  color: white;
 }
 
 .coupon-detail-body {
@@ -155,10 +161,10 @@ html, body {
   line-height: 18px;
   max-width: 190px;
   width: 100%;
-
 }
 
-.goods-price, .bank-information {
+.goods-price,
+.bank-information {
   font-weight: 400;
   font-size: 14px;
   color: black;
