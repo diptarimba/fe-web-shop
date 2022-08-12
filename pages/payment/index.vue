@@ -45,8 +45,8 @@
     </div>
     <div class="col-12 align-self-end p-0">
       <div class="row justify-content-center">
-        <b-button type="submit" form="register-form" class="col-auto m-0 p-0 btn-xd"><span class="registrasi-xd">Belanja Lagi</span></b-button>
-        <b-button type="submit" form="register-form" class="col-auto m-0 p-0 btn-xd"><span class="registrasi-xd">Lanjut</span></b-button>
+        <b-button type="submit" form="register-form" class="col-5 m-1 btn-xds outline-blue-base split-two" variant="outline-primary">Belanja Lagi</b-button>
+        <b-button type="submit" form="register-form" class="col-5 m-1 btn-xd split-two blue-base">Lanjut</b-button>
       </div>
     </div>
 </div>
