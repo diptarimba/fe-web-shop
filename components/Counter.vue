@@ -1,54 +1,73 @@
 <template>
-<div>
-  <button class="btns btn--minus" @click="changeCounter('-1')" type="button" name="button">
-      -
-  </button>
-  <input class="quantity" type="text" name="name" :value="counter">
-  <button class="btns btn--plus" @click="changeCounter('1')" type="button" name="button">
-      +
-  </button>
-</div>
+  <div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button
+        class="btns btn--minus rounded"
+        @click="changeCounter('-1')"
+        type="button"
+        name="button"
+      >
+        -
+      </button>
+      <input
+        class="quantity border-left-0 border-right-0"
+        type="text"
+        name="name"
+        :value="counter"
+      />
+      <button
+        class="btns btn--plus rounded"
+        @click="changeCounter('1')"
+        type="button"
+        name="button"
+      >
+        +
+      </button>
+    </div>
+  </div>
 </template>
-<style>
+<style scoped>
 .quantity {
   -webkit-appearance: none;
   border: none;
   text-align: center;
-    width: 20px;
-  font-size: 12px;
-  margin-bottom: 10px;
-  color: #43484D;
+  font-size: 14px;
+  color: #43484d;
   font-weight: 300;
-	border: 1px solid #E1E8EE;
+  border: 1px solid #e1e8ee;
+  width: 30px;
 }
+
 .btns {
-	border: 1px solid #E1E8EE;
-  width: 20px;
-  background-color: #E1E8EE;
-  border-radius: 6px;
+  border: 1px solid #e1e8ee;
+  /*   border-radius: 6px; */
   cursor: pointer;
+  width: 30px;
+  background: none;
 }
 button:focus,
 input:focus {
-  outline:0;
+  outline: 0;
 }
 </style>
 <script>
 export default {
   props: {
-    counters: {required: true, type: Number},
+    counters: { required: true, type: Number },
   },
   data() {
     return {
-        counter: this.counters,
-    }
+      counter: this.counters,
+    };
   },
   methods: {
-    changeCounter: function(num){
+    changeCounter: function (num) {
       this.counter += +num;
       console.log(this.counter);
-      !isNaN(this.counter) && this.counter > 0 ? this.counter : this.counter = 0;
-    }
-}
-}
+      !isNaN(this.counter) && this.counter > 0
+        ? this.counter
+        : (this.counter = 0);
+    },
+  },
+};
 </script>

@@ -1,53 +1,119 @@
 <template>
-<div class="row flex-grow-1 broder container mx-auto">
+  <div class="row flex-grow-1 broder mx-auto container">
     <div class="col-12 align-self-start p-0">
-        <div class="text-header my-4">Cart</div>
-        <div v-for="(each, index) in good" :key="index" class="d-flex justify-content-start mb-1">
-          <img :src="each.image" style="width: 30%;" class="img-reponsive rounded d-inline-flex">
-          <div class="flex-fill p-0 m-0 row">
-            <div class="col-12 ml-4 align-self-start">
-            <div class="goods-title">{{each.name}}</div>
-            <div class="goods-requirement">Min. Pembelian : {{each.min}}</div>
-            </div>
-            <div class="col-12 ml-4 align-self-end row justify-content-between">
-            <Counter :counters="each.stock"/>
+      <div class="text-header my-4">Cart</div>
+      <div
+        v-for="(each, index) in good"
+        :key="index"
+        class="d-flex justify-content-start mb-3"
+      >
+        <img
+          :src="each.image"
+          style="width: 30%"
+          class="img-reponsive rounded d-inline-flex"
+        />
+        <div class="flex-fill p-0 m-0 row">
+          <div class="col-12 ml-1 align-self-start">
+            <div class="goods-title">{{ each.name }}</div>
+            <div class="goods-requirement mt-1">
+              Min. Pembelian : {{ each.min }}
             </div>
           </div>
+          <div class="col-12 ml-1 align-self-end row justify-content-between">
+            <Counter :counters="each.stock" />
+          </div>
         </div>
+      </div>
     </div>
-    <div class="col-12 align-self-end text-center p-0">
-        <b-button type="submit" form="register-form" class="col-12 mb-3 btn-xd"><span class="registrasi-xd">Selanjutnya</span></b-button>
+    <div class="w-100 text-center p-0 mt-5">
+      <b-button
+        type="submit"
+        form="register-form"
+        class="w-100 mb-3 btn-xd border-0"
+        ><span class="registrasi-xd">Selanjutnya</span></b-button
+      >
     </div>
-</div>
+  </div>
 </template>
 
-<style>
-.goods-title{
+<style scoped>
+.goods-title {
   font-weight: 700;
   width: 201px;
-  overflow:hidden;
-  white-space:nowrap;
+  overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
+}
+img {
+  max-height: 100px;
+  object-fit: cover;
 }
 </style>
 
 <script>
 export default {
-    layout: 'default',
-    data() {
-        return {
-          good: [
-              { image: 'https://placeimg.com/300/300/any', name: 'Sachet Soto Ayam', min: 5, stock: 12, price: 18000},
-              { image: 'https://placeimg.com/300/300/any', name: 'Sachet Soto Lamongan', min: 5,stock: 20, price: 16000},
-              { image: 'https://placeimg.com/300/300/any', name: 'Sachet Soto Sokaraja', min: 6, stock: 13,price: 14000},
-              { image: 'https://placeimg.com/300/300/any', name: 'Sachet Soto Tamanwinangun', min: 7, stock: 9,price: 12000},
-              { image: 'https://placeimg.com/300/300/any', name: 'Sachet Soto Boyolali', min: 5,stock: 27, price: 12400},
-              { image: 'https://placeimg.com/300/300/any', name: 'Sachet Bakso Urat', min: 6, stock: 30,price: 15300},
-              { image: 'https://placeimg.com/300/300/any', name: 'Sachet Bakso Mercon', min: 8, stock: 15,price: 14500},
-              { image: 'https://placeimg.com/300/300/any', name: 'Sachet Pecel Mercon', min: 5, stock: 6,price: 12100},
-            ],
-        }
-    },
-
-}
+  layout: "default",
+  data() {
+    return {
+      good: [
+        {
+          image: "https://placeimg.com/300/300/any",
+          name: "Sachet Soto Ayam",
+          min: 5,
+          stock: 12,
+          price: 18000,
+        },
+        {
+          image: "https://placeimg.com/300/300/any",
+          name: "Sachet Soto Lamongan",
+          min: 5,
+          stock: 20,
+          price: 16000,
+        },
+        {
+          image: "https://placeimg.com/300/300/any",
+          name: "Sachet Soto Sokaraja",
+          min: 6,
+          stock: 13,
+          price: 14000,
+        },
+        {
+          image: "https://placeimg.com/300/300/any",
+          name: "Sachet Soto Tamanwinangun",
+          min: 7,
+          stock: 9,
+          price: 12000,
+        },
+        {
+          image: "https://placeimg.com/300/300/any",
+          name: "Sachet Soto Boyolali",
+          min: 5,
+          stock: 27,
+          price: 12400,
+        },
+        {
+          image: "https://placeimg.com/300/300/any",
+          name: "Sachet Bakso Urat",
+          min: 6,
+          stock: 30,
+          price: 15300,
+        },
+        {
+          image: "https://placeimg.com/300/300/any",
+          name: "Sachet Bakso Mercon",
+          min: 8,
+          stock: 15,
+          price: 14500,
+        },
+        {
+          image: "https://placeimg.com/300/300/any",
+          name: "Sachet Pecel Mercon",
+          min: 5,
+          stock: 6,
+          price: 12100,
+        },
+      ],
+    };
+  },
+};
 </script>
