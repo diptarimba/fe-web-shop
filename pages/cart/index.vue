@@ -1,6 +1,6 @@
 <template>
-  <div class="row flex-grow-1 broder mx-auto container">
-    <div class="col-12 align-self-start p-0">
+  <div class="flex-grow-1 broder mx-auto container">
+    <div class="align-self-start p-0">
       <div class="text-header my-4">Cart</div>
       <div
         v-for="(each, index) in good"
@@ -12,14 +12,14 @@
           style="width: 30%"
           class="img-reponsive rounded d-inline-flex"
         />
-        <div class="flex-fill p-0 m-0 row">
-          <div class="col-12 ml-1 align-self-start">
-            <div class="goods-title">{{ each.name }}</div>
-            <div class="goods-requirement mt-1">
-              Min. Pembelian : {{ each.min }}
-            </div>
+        <div class="ml-3">
+          <div class="goods-title">
+            {{ $options.filters.truncate(each.name, 20) }}
           </div>
-          <div class="col-12 ml-1 align-self-end row justify-content-between">
+          <div class="goods-requirement mt-1 mb-4">
+            Min. Pembelian : {{ each.min }}
+          </div>
+          <div>
             <Counter :counters="each.stock" />
           </div>
         </div>
@@ -72,7 +72,7 @@ export default {
         },
         {
           image: "https://placeimg.com/300/300/any",
-          name: "Sachet Soto Sokaraja",
+          name: "Makanan Panjang Pokoknya",
           min: 6,
           stock: 13,
           price: 14000,

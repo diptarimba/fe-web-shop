@@ -5,7 +5,8 @@
         <div class="text-header my-4">Kupon</div>
         <div class="coupon-detail-header mb-3">Potongan harga 25.000</div>
         <div class="coupon-detail-body">
-          Dengan minimun berbelanja Rp 100.000 di Grosir 1
+          Dengan minimun berbelanja <br />
+          Rp 100.000 di Grosir 1
         </div>
         <div class="d-flex text-label-muted my-4">
           <img src="/img/date.svg" height="16" alt="" />

@@ -136,27 +136,11 @@ textarea {
 
 <script>
 export default {
-    layout: 'default',
-    data() {
-        return {
-          message: '',
-          userAddress: ''
-        }
-    },
-    methods: {
-      deliveryAddress()
-      {
-        this.$axios.get('/address').then(response => {
-          if(response.data.status === 'OK')
-          {
-            this.userAddress = response.data.data[0];
-            console.log(this.userAddress)
-          }
-        })
-      },
-    },
-    created() {
-      this.deliveryAddress();
-    }
-}
+  layout: "default",
+  data() {
+    return {
+      message: "",
+    };
+  },
+};
 </script>

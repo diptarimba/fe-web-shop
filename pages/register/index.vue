@@ -1,6 +1,6 @@
 <template>
-  <div id="register">
-    <div class="flex-grow-1 broder mx-auto container">
+  <div id="register" class="container">
+    <div class="flex-grow-1 broder mx-auto">
       <div class="col-12 align-self-start p-0">
         <div class="text-header my-4">Register</div>
         <b-form
@@ -86,7 +86,7 @@
           </b-form-group>
         </b-form>
       </div>
-      <div class="row text-center p-3 register">
+      <div class="text-center p-3 fixed-bottom">
         <b-button
           type="submit"
           form="register-form"
@@ -102,9 +102,6 @@
 #register {
   height: 100vh;
   overflow: scroll;
-}
-.register {
-  margin-top: 4rem;
 }
 ::-webkit-scrollbar {
   display: none;

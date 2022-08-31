@@ -2,7 +2,7 @@
   <div id="menu">
     <div class="row flex-grow-1 broder mx-auto container">
       <div class="col-12 align-self-start p-0">
-        <div class="headerrr pt-2">
+        <div class="headerrr py-3 border-bottom">
           <div
             class="row justify-content-between d-flex align-items-center mt-3 mb-2"
           >
@@ -35,14 +35,12 @@
               >{{ value.category_name }}</b-button
             >
           </div>
-          <hr />
         </div>
 
         <div
           v-for="(each, index) in products"
           :key="index"
           class="d-flex justify-content-between my-3"
-          v-on:click="productDetail(each.product_id)"
         >
           <img
             :src="each.product_image"
@@ -60,13 +58,41 @@
               <div class="goods-price">
                 {{ each.price }}
               </div>
+              <!-- button add -->
               <b-button
                 v-on:click="addToCart(each.product_id)"
-                class="add-btn border-0"
+                class="add-btn border-0 d-none"
                 >Add</b-button
               >
+              <!-- counter  -->
+              <!-- end button add -->
+
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button
+                  class="btns btn--minus rounded"
+                  @click="changeCounter('-1')"
+                  type="button"
+                  name="button"
+                >
+                  -
+                </button>
+                <input
+                  class="quantity border-left-0 border-right-0"
+                  type="text"
+                  name="name"
+                  :value="counter"
+                />
+                <button
+                  class="btns btn--plus rounded"
+                  @click="changeCounter('1')"
+                  type="button"
+                  name="button"
+                >
+                  +
+                </button>
+              </div>
+              <!-- end counter  -->
             </div>
-            <b-button v-on:click="addToCart(each.product_id)" class="add-btn badge badge-pill">add</b-button>
           </div>
         </div>
       </div>
@@ -84,6 +110,7 @@
 <script>
 import axios from "axios";
 import { BIcon, BIconCart3 } from "bootstrap-vue";
+
 export default {
   name: "MenuIndex",
   layout: "default",
@@ -93,6 +120,7 @@ export default {
   },
   data() {
     return {
+      counter: 1,
       priceTotal: 0,
       productTotal: 0,
       itemsCart: [],
@@ -252,6 +280,14 @@ export default {
       // localStorage.setItem("cart_total_count", total);
       // this.closeModal();
     },
+
+    changeCounter: function (num) {
+      this.counter += +num;
+      console.log(this.counter);
+      !isNaN(this.counter) && this.counter > 0
+        ? this.counter
+        : (this.counter = 0);
+    },
   },
   created() {
     // this.refreshMenu();
@@ -261,6 +297,24 @@ export default {
 </script>
 
 <style scoped>
+.quantity {
+  -webkit-appearance: none;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  color: #43484d;
+  font-weight: 300;
+  border: 1px solid #e1e8ee;
+  width: 30px;
+}
+
+.btns {
+  border: 1px solid #e1e8ee;
+  /*   border-radius: 6px; */
+  cursor: pointer;
+  width: 30px;
+  background: none;
+}
 input {
   font-size: 14px;
 }
@@ -374,7 +428,6 @@ select {
   font-size: 18px;
   color: #3f37c9;
   letter-spacing: 0;
-  line-height: 22px;
   text-overflow: ellipsis;
   overflow: hidden;
   /* white-space: nowrap; */
