@@ -40,16 +40,16 @@
         <div
           v-for="(each, index) in products"
           :key="index"
-          class="d-flex justify-content-between my-3"
+          class="d-flex my-3"
         >
           <img
             :src="each.product_image"
             style="width: 25%; max-height: 200px"
-            class="img-reponsive rounded mr-2"
+            class="img-reponsive rounded mr-3"
           />
-          <div>
+          <div class="flex-grow-1">
             <div class="goods-title">
-              {{ $options.filters.truncate(each.product_name, 22) }}
+              {{ $options.filters.truncate(each.product_name, 23) }}
             </div>
             <div class="goods-requirement">
               Min. Pembelian : {{ each.minimum_order }}
@@ -66,31 +66,7 @@
               >
               <!-- counter  -->
               <!-- end button add -->
-
-              <div class="btn-group" role="group" aria-label="Basic example">
-                <button
-                  class="btns btn--minus rounded"
-                  @click="changeCounter('-1')"
-                  type="button"
-                  name="button"
-                >
-                  -
-                </button>
-                <input
-                  class="quantity border-left-0 border-right-0"
-                  type="text"
-                  name="name"
-                  :value="counter"
-                />
-                <button
-                  class="btns btn--plus rounded"
-                  @click="changeCounter('1')"
-                  type="button"
-                  name="button"
-                >
-                  +
-                </button>
-              </div>
+              <Counter :counters="counter" />
               <!-- end counter  -->
             </div>
           </div>
@@ -110,7 +86,11 @@
 <script>
 import axios from "axios";
 import { BIcon, BIconCart3 } from "bootstrap-vue";
-
+const mutations = {
+    changeOrAdd(state, {key, value}) {
+        Vue.set(state.data, key, value)
+    }
+}
 export default {
   name: "MenuIndex",
   layout: "default",
@@ -120,7 +100,7 @@ export default {
   },
   data() {
     return {
-      counter: 1,
+      counter: {},
       priceTotal: 0,
       productTotal: 0,
       itemsCart: [],
@@ -147,7 +127,7 @@ export default {
           product_id: 1,
           product_image:
             "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Makanan Panjang Pokoknya",
+          product_name: "Kacang Kuaci Permen",
           minimum_order: 0,
           price: 1000,
         },
@@ -155,7 +135,7 @@ export default {
           product_id: 2,
           product_image:
             "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Makanan Panjang Pokoknya",
+          product_name: "Permen Yupi Manis",
           minimum_order: 0,
           price: 1000,
         },
@@ -163,7 +143,7 @@ export default {
           product_id: 3,
           product_image:
             "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Makanan Panjang Pokoknya",
+          product_name: "Beras tidak sembarang beras",
           minimum_order: 0,
           price: 1000,
         },
@@ -171,7 +151,7 @@ export default {
           product_id: 4,
           product_image:
             "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Makanan Panjang Pokoknya",
+          product_name: "Cokelat Manis",
           minimum_order: 0,
           price: 1000,
         },
@@ -179,7 +159,7 @@ export default {
           product_id: 5,
           product_image:
             "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Makanan Panjang Pokoknya",
+          product_name: "Mineral Ada Manis Manisnya",
           minimum_order: 0,
           price: 1000,
         },
@@ -187,7 +167,7 @@ export default {
           product_id: 6,
           product_image:
             "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Makanan Panajang Pokoknya",
+          product_name: "Harmony Bukan Makanan",
           minimum_order: 0,
           price: 1000,
         },
@@ -195,7 +175,7 @@ export default {
           product_id: 7,
           product_image:
             "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Makanan Panajang Pokoknya",
+          product_name: "Susu Cokelat UHUY",
           minimum_order: 0,
           price: 1000,
         },
@@ -203,7 +183,7 @@ export default {
           product_id: 8,
           product_image:
             "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Makanan Panajang Pokoknya",
+          product_name: "Seblak Kemasan",
           minimum_order: 0,
           price: 1000,
         },
@@ -211,7 +191,7 @@ export default {
           product_id: 9,
           product_image:
             "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Makanan Panajang Pokoknya",
+          product_name: "Pedas Tapi Bukan Seblak",
           minimum_order: 0,
           price: 1000,
         },
@@ -219,7 +199,7 @@ export default {
           product_id: 10,
           product_image:
             "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Makanan Panajang Pokoknya",
+          product_name: "Choco Ronde",
           minimum_order: 0,
           price: 1000,
         },
@@ -227,7 +207,7 @@ export default {
           product_id: 11,
           product_image:
             "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Makanan Panajang Pokoknya",
+          product_name: "Wedang Bajigur Sachet",
           minimum_order: 0,
           price: 1000,
         },
@@ -279,14 +259,6 @@ export default {
       // }
       // localStorage.setItem("cart_total_count", total);
       // this.closeModal();
-    },
-
-    changeCounter: function (num) {
-      this.counter += +num;
-      console.log(this.counter);
-      !isNaN(this.counter) && this.counter > 0
-        ? this.counter
-        : (this.counter = 0);
     },
   },
   created() {

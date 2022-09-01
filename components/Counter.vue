@@ -67,6 +67,8 @@ export default {
       !isNaN(this.counter) && this.counter > 0
         ? this.counter
         : (this.counter = 0);
+
+      return this.counter;
     },
   },
 };
