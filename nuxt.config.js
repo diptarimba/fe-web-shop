@@ -36,6 +36,7 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     "bootstrap-vue/nuxt",
     "@nuxtjs/axios",
+    '@nuxtjs/auth'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -58,5 +59,51 @@ export default {
       target: process.env.URL_API_PATH,
       pathRewrite: { "^/api": "" },
     },
+  },
+
+  router: {
+    middleware: ['auth']
+  },
+
+  auth: {
+    redirect: {
+      login: '/menu',
+      home: '/',
+      logout: '/menu'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: '/auth/login',
+            method: 'post',
+            propertyName: 'data.token'
+          },
+          user: {
+            url: '/address',
+            method: 'post',
+            property: false
+          },
+          logout: {
+            url: '/api/logout',
+            method: 'post'
+          }
+        }
+      }
+    },
+    token: {
+      propertyName: 'data.token'
+    },
+    // customerId: {
+    //   name: 'customerId',
+    //   property: 'data.customerId'
+    // },
+    // userId: {
+    //   name: 'userId',
+    //   property: 'data.userId'
+    // },
+    // cookie: {
+    //   name: 'token'
+    // }
   },
 };
