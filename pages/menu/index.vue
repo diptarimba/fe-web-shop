@@ -27,37 +27,37 @@
         </div>
 
         <div v-for="(each, index) in products" :key="index" class="d-flex my-3">
-          <img :src="each.product_image" style="width: 25%; max-height: 200px" class="img-reponsive rounded mr-3" />
+          <img :src="each.image" style="width: 25%; max-height: 200px" class="img-reponsive rounded mr-3" />
           <div class="flex-grow-1">
             <div class="goods-title">
-              {{ $options.filters.truncate(each.product_name, 23) }}
+              {{ $options.filters.truncate(each.productName, 23) }}
             </div>
             <div class="goods-requirement">
-              Min. Pembelian : {{ each.minimum_order }}
+              Min. Pembelian : {{ each.min }}
             </div>
             <div class="d-flex justify-content-between align-items-center mt-4">
               <div class="goods-price">
-                {{ each.price }}
+                {{ each.productPrice }}
               </div>
               <!-- button add -->
 
-              <b-button v-on:click="addToCart(each.product_id, 'add')"
-                :class="{ 'd-none': checkCart(each.product_id) != -1 }" class="add-btn border-0">Add</b-button>
+              <b-button v-on:click="addToCart(each.productId, 'add')"
+                :class="{ 'd-none': checkCart(each.productId) != -1 }" class="add-btn border-0">Add</b-button>
               <!-- counter  -->
               <!-- end button add -->
               <!-- <Counter :counters="counter"
-              v-on:click="addToCart(each.product_id)"
+              v-on:click="addToCart(each.productId)"
               :class="{'d-none': parseInt(counter) == 0}"
               /> -->
               <div class="btn-group" role="group" aria-label="Basic example"
-                :class="{ 'd-none': checkCart(each.product_id) == -1 }">
-                <button class="btns btn--minus rounded" @click="addToCart(each.product_id, 'remove')" type="button"
+                :class="{ 'd-none': checkCart(each.productId) == -1 }">
+                <button class="btns btn--minus rounded" @click="addToCart(each.productId, 'remove')" type="button"
                   name="button">
                   -
                 </button>
                 <input class="quantity border-left-0 border-right-0" type="text" name="name"
-                  :value="checkCart(each.product_id) == -1 ? 0 : itemsCart[checkCart(each.product_id)].counter" />
-                <button class="btns btn--plus rounded" @click="addToCart(each.product_id, 'add')" type="button"
+                  :value="checkCart(each.productId) == -1 ? 0 : itemsCart[checkCart(each.productId)].counter" />
+                <button class="btns btn--plus rounded" @click="addToCart(each.productId, 'add')" type="button"
                   name="button">
                   +
                 </button>
@@ -95,7 +95,7 @@ export default {
   },
   data() {
     return {
-      phone: '',
+      phone: '0895631354525',
       counter: 0,
       priceTotal: 0,
       productTotal: 0,
@@ -118,92 +118,12 @@ export default {
       ],
       products: [
         {
-          product_id: 1,
-          product_image:
+          productId: 1,
+          image:
             "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Kacang Kuaci Permen",
-          minimum_order: 0,
-          price: 1000,
-        },
-        {
-          product_id: 2,
-          product_image:
-            "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Permen Yupi Manis",
-          minimum_order: 0,
-          price: 1000,
-        },
-        {
-          product_id: 3,
-          product_image:
-            "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Beras tidak sembarang beras",
-          minimum_order: 0,
-          price: 1000,
-        },
-        {
-          product_id: 4,
-          product_image:
-            "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Cokelat Manis",
-          minimum_order: 0,
-          price: 1000,
-        },
-        {
-          product_id: 5,
-          product_image:
-            "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Mineral Ada Manis Manisnya",
-          minimum_order: 0,
-          price: 1000,
-        },
-        {
-          product_id: 6,
-          product_image:
-            "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Harmony Bukan Makanan",
-          minimum_order: 0,
-          price: 1000,
-        },
-        {
-          product_id: 7,
-          product_image:
-            "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Susu Cokelat UHUY",
-          minimum_order: 0,
-          price: 1000,
-        },
-        {
-          product_id: 8,
-          product_image:
-            "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Seblak Kemasan",
-          minimum_order: 0,
-          price: 1000,
-        },
-        {
-          product_id: 9,
-          product_image:
-            "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Pedas Tapi Bukan Seblak",
-          minimum_order: 0,
-          price: 1000,
-        },
-        {
-          product_id: 10,
-          product_image:
-            "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Choco Ronde",
-          minimum_order: 0,
-          price: 1000,
-        },
-        {
-          product_id: 11,
-          product_image:
-            "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
-          product_name: "Wedang Bajigur Sachet",
-          minimum_order: 0,
-          price: 1000,
+          productName: "Kacang Kuaci Permen",
+          min: 0,
+          productPrice: 1000,
         },
       ],
     };
@@ -214,25 +134,21 @@ export default {
       this.itemsCart = JSON.parse(item_json)
     }
     this.getPricetotal();
+    this.login();
+    this.refreshMenu();
   },
   methods: {
-    async login(){
-      try {
-
-        await this.$auth.loginWith('local', {
-          data: {
-            phoneNumber: this.phone,
-            deviceId: "44616cf8bc790f",
-            secretKey: "116b52f9a9051390d1c1ddbf65666305"
-          },
-        }).then(data => {
-          console.log(data)
-        })
-
-        this.$router.push('/menu')
-      } catch (e) {
-        this.error = e.response.data.message
-      }
+    login() {
+      this.$axios.post("/auth/login",
+        {
+          phoneNumber: "0895631354525",
+          deviceId: "44616cf8bc790f",
+          secretKey: "116b52f9a9051390d1c1ddbf65666305"
+        },
+      ).then((response) => {
+        let user = response.data.data
+        localStorage.setItem("user", JSON.stringify(user));
+      });
     },
     refreshCategory() {
       this.$axios.get("/category/product").then((response) => {
@@ -242,10 +158,21 @@ export default {
       });
     },
     refreshMenu() {
-      this.$axios.get("/products").then((response) => {
-        if (response.data.status === "OK") {
-          this.products = response.data.data;
-        }
+      let user = localStorage.getItem('user')
+      let data_body = JSON.parse(user)
+      console.log(data_body)
+      this.$axios.post("/products", {
+        "agentId": data_body.agentId,
+        "categoryId": 0,
+        "customerId": data_body.customerId,
+        "keywords": "",
+        "limit": 10,
+        "merchantId": data_body.vendorIds,
+        "page": 1,
+        "token": data_body.token,
+        "userId": data_body.userId
+      }).then((response) => {
+        this.products = response.data.data.listProducts
       });
     },
     productDetail(id) {
@@ -256,19 +183,19 @@ export default {
       if (this.itemsCart.length > 0) {
         for (let index = 0; index < this.itemsCart.length; index++) {
           const element = this.itemsCart[index];
-          total += (element.price * element.counter)
+          total += (element.productPrice * element.counter)
         }
       }
       this.productTotal = total
     },
     checkCart(id) {
-      let data_cart_index = this.itemsCart.findIndex(x => x.product_id == id)
+      let data_cart_index = this.itemsCart.findIndex(x => x.productId == id)
       return data_cart_index
     },
     addToCart(id, option) {
-      let data_cart = this.itemsCart.find(x => x.product_id == id)
-      let data_cart_index = this.itemsCart.findIndex(x => x.product_id == id)
-      let data_product = this.products.find(x => x.product_id == id)
+      let data_cart = this.itemsCart.find(x => x.productId == id)
+      let data_cart_index = this.itemsCart.findIndex(x => x.productId == id)
+      let data_product = this.products.find(x => x.productId == id)
       if (option == 'add') {
         if (data_cart != undefined) {
           let item = [...this.itemsCart]

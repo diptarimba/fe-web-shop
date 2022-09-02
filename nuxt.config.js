@@ -61,49 +61,4 @@ export default {
     },
   },
 
-  router: {
-    middleware: ['auth']
-  },
-
-  auth: {
-    redirect: {
-      login: '/menu',
-      home: '/',
-      logout: '/menu'
-    },
-    strategies: {
-      local: {
-        endpoints: {
-          login: {
-            url: '/auth/login',
-            method: 'post',
-            propertyName: 'data.token'
-          },
-          user: {
-            url: '/address',
-            method: 'post',
-            property: false
-          },
-          logout: {
-            url: '/api/logout',
-            method: 'post'
-          }
-        }
-      }
-    },
-    token: {
-      propertyName: 'data.token'
-    },
-    // customerId: {
-    //   name: 'customerId',
-    //   property: 'data.customerId'
-    // },
-    // userId: {
-    //   name: 'userId',
-    //   property: 'data.userId'
-    // },
-    // cookie: {
-    //   name: 'token'
-    // }
-  },
 };

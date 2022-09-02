@@ -3,24 +3,24 @@
     <div class="align-self-start p-0">
       <div class="text-header my-4">Cart</div>
       <div v-for="(each, index) in itemsCart" :key="index" class="d-flex justify-content-start mb-3">
-        <img :src="each.product_image" style="width: 30%" class="img-reponsive rounded d-inline-flex" />
+        <img :src="each.image" style="width: 30%" class="img-reponsive rounded d-inline-flex" />
         <div class="ml-3">
           <div class="goods-title">
-            {{ $options.filters.truncate(each.product_name, 20) }}
+            {{ $options.filters.truncate(each.productName, 20) }}
           </div>
           <div class="goods-requirement mt-1 mb-4">
             Min. Pembelian : {{ each.minimum_order }}
           </div>
           <div>
             <div class="btn-group" role="group" aria-label="Basic example"
-              :class="{ 'd-none': checkCart(each.product_id) == -1 }">
-              <button class="btns btn--minus rounded" @click="addToCart(each.product_id, 'remove')" type="button"
+              :class="{ 'd-none': checkCart(each.productId) == -1 }">
+              <button class="btns btn--minus rounded" @click="addToCart(each.productId, 'remove')" type="button"
                 name="button">
                 -
               </button>
               <input class="quantity border-left-0 border-right-0" type="text" name="name"
-                :value="checkCart(each.product_id) == -1 ? 0 : itemsCart[checkCart(each.product_id)].counter" />
-              <button class="btns btn--plus rounded" @click="addToCart(each.product_id, 'add')" type="button"
+                :value="checkCart(each.productId) == -1 ? 0 : itemsCart[checkCart(each.productId)].counter" />
+              <button class="btns btn--plus rounded" @click="addToCart(each.productId, 'add')" type="button"
                 name="button">
                 +
               </button>
@@ -80,7 +80,16 @@ export default {
   layout: "default",
   data() {
     return {
-      itemsCart: [],
+      itemsCart: [
+        {
+          productId: 1,
+          image:
+            "https://cdn-2.tstatic.net/manado/foto/bank/images/import-beras.jpg",
+          productName: "Kacang Kuaci Permen",
+          min: 0,
+          productPrice: 1000,
+        },
+      ],
     };
   },
   mounted() {
@@ -91,12 +100,12 @@ export default {
   },
   methods: {
     checkCart(id) {
-      let data_cart_index = this.itemsCart.findIndex(x => x.product_id == id)
+      let data_cart_index = this.itemsCart.findIndex(x => x.productId == id)
       return data_cart_index
     },
     addToCart(id, option) {
-      let data_cart = this.itemsCart.find(x => x.product_id == id)
-      let data_cart_index = this.itemsCart.findIndex(x => x.product_id == id)
+      let data_cart = this.itemsCart.find(x => x.productId == id)
+      let data_cart_index = this.itemsCart.findIndex(x => x.productId == id)
       if (option == 'add') {
         if (data_cart != undefined) {
           let item = [...this.itemsCart]
